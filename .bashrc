@@ -189,8 +189,26 @@ On_White='\e[47m'       # White
 
 NC="\e[m"               # Color Reset
 
+# pront menu
+
+ssid=$(nmcli -t -f name connection show --active)
+signal=$(cat /proc/net/wireless | awk 'NR==3 {printf "%0.0f%%\n", $3/70*100}')
 
 # new alert text
 ALERT=${BWhite}${On_Red} # Bold White on red background
 
-export PS1=" ⚡\[\e[36m\]\u\[\e[m\]\[\e[35m\]|→\[\e[m\]\[\e[34m\]\h\[\e[m\]\[\e[31m\]:\[\e[m\]\[\e[32m\][\[\e[m\]\[\e[32m\]\A\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[33m\]-\[\e[m\]\[\e[33m\](\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[33m\])\[\e[m\]\[\e[31m\]\`parse_git_branch\`\[\e[m\] \n\[\e[36m\] >>\[\e[m\] \[\033[0m\]\[\e[1;34m\]\[\e[0;36m\]"
+export PS1=" ⚡\[\e[36m\]\u\[\e[m\]\[\e[35m\]|→\[\e[m\]\[\e[34m\]\h∞\[\e[m\]\[\e[31m\]:\[\e[1;35m[\d\e[1;35m]\e[1;31m↔\e[1;33m\[[\e[m\]\[\e[1;33m\A\[\e[1;33m]\[\e[32m\]\[\e[1;36m\e[1;31m►\e[1;32m[Red-$signal]\\e[1;31m►\[\e[m\]\[\e[33m\](\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[33m\])\[\e[m\]\[\e[31m\]\`parse_git_branch\`\[\e[m\] \n\[\e[36m\] >>\[\e[m\] \[\033[0m\]\[\e[1;34m\]\[\e[0;36m\]"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
